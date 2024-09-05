@@ -18,7 +18,6 @@ class HomeViewModel extends BaseViewModel {
             .map((el) => Post.fromMap(jsonDecode(el)))
             .toList();
       }
-
       if (posts.isEmpty) {
         Dio dio = Dio();
         var response = await dio.get(
