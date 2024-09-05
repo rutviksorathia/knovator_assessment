@@ -33,18 +33,20 @@ class HomeView extends StackedView<HomeViewModel> {
       body: Container(
         padding: const EdgeInsets.only(left: 25.0, right: 25.0),
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: viewModel.posts
-                  .map(
-                    (e) => PostListItem(
-                      post: e,
-                      viewModel: viewModel,
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
+          child: viewModel.busy(viewModel.fetchPosts)
+              ? const Center(child: CircularProgressIndicator())
+              : SingleChildScrollView(
+                  child: Column(
+                    children: viewModel.posts
+                        .map(
+                          (e) => PostListItem(
+                            post: e,
+                            viewModel: viewModel,
+                          ),
+                        )
+                        .toList(),
+                  ),
+                ),
         ),
       ),
     );

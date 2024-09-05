@@ -10,27 +10,34 @@ import 'package:hive_flutter/hive_flutter.dart';
 class HomeViewModel extends BaseViewModel {
   List<Post> posts = [];
   Future<void> fetchPosts() async {
-    final postItems = Hive.box('postList');
-    if (postItems.get("postList") != null) {
-      posts = (postItems.get("postList") as List<String>)
-          .map((el) => Post.fromMap(jsonDecode(el)))
-          .toList();
+    try {
+      setBusyForObject(fetchPosts, true);
+      final postItems = Hive.box('postList');
+      if (postItems.get("postList") != null) {
+        posts = (postItems.get("postList") as List<String>)
+            .map((el) => Post.fromMap(jsonDecode(el)))
+            .toList();
+      }
+
+      if (posts.isEmpty) {
+        Dio dio = Dio();
+        var response = await dio.get(
+          'https://jsonplaceholder.typicode.com/posts',
+        );
+
+        posts = (response.data as List).map((e) => Post.fromMap(e)).toList();
+
+        postItems.put(
+          "postList",
+          posts.map((e) => jsonEncode(e.toMap())).toList(),
+        );
+      }
+      notifyListeners();
+    } catch (e) {
+      print(e);
+    } finally {
+      setBusyForObject(fetchPosts, false);
     }
-
-    if (posts.isEmpty) {
-      Dio dio = Dio();
-      var response = await dio.get(
-        'https://jsonplaceholder.typicode.com/posts',
-      );
-
-      posts = (response.data as List).map((e) => Post.fromMap(e)).toList();
-
-      postItems.put(
-        "postList",
-        posts.map((e) => jsonEncode(e.toMap())).toList(),
-      );
-    }
-    notifyListeners();
   }
 
   void handlePostListItemTap(Post post) async {

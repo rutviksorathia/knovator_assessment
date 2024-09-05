@@ -12,12 +12,16 @@ class PostDetailsViewModel extends BaseViewModel {
   Post? post;
 
   Future<void> fetchPost() async {
-    Dio dio = Dio();
-    var response = await dio.get(
-      'https://jsonplaceholder.typicode.com/posts/$postId',
-    );
+    try {
+      Dio dio = Dio();
+      var response = await dio.get(
+        'https://jsonplaceholder.typicode.com/posts/$postId',
+      );
 
-    post = Post.fromMap(response.data);
-    notifyListeners();
+      post = Post.fromMap(response.data);
+      notifyListeners();
+    } catch (e) {
+      print(e);
+    }
   }
 }
