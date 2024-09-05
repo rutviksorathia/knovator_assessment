@@ -88,6 +88,7 @@ class _PostListItemState extends State<PostListItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
+        widget.post.isTimerStarted = true,
         widget.timer?.cancel(),
         widget.viewModel.handlePostListItemTap(widget.post),
       },

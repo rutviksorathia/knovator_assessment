@@ -33,9 +33,7 @@ class HomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void handlePostListItemTap(
-    Post post
-  ) async {
+  void handlePostListItemTap(Post post) async {
     posts.firstWhere((el) => el.id == post.id).markAsRead = true;
     var result = await Get.to<bool>(() => PostDetailsView(postId: post.id));
     notifyListeners();
@@ -46,7 +44,7 @@ class HomeViewModel extends BaseViewModel {
       posts.map((e) => jsonEncode(e.toMap())).toList(),
     );
 
-    if (result == true) {
+    if (result == true && post.isTimerStarted) {
       post.isTimerStarted = true;
       notifyListeners();
     }
