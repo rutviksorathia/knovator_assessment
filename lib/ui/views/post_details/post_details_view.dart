@@ -35,9 +35,18 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       appBar: AppBar(
+        leadingWidth: 60,
         leading: InkWell(
-            onTap: () => Get.back(result: true),
-            child: const Icon(Icons.chevron_left)),
+          onTap: () => Get.back(result: true),
+          child: const Row(
+            children: [
+              Icon(Icons.chevron_left),
+              Text(
+                "Back",
+              )
+            ],
+          ),
+        ),
       ),
       body: SafeArea(
         child: Container(
@@ -45,14 +54,14 @@ class PostDetailsView extends StackedView<PostDetailsViewModel> {
           child: viewModel.post == null
               ? const Center(child: CircularProgressIndicator())
               : Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      viewModel.post!.title.toUpperCase(),
+                      viewModel.post!.title,
                       style: TextStyle(
                         color: Colors.blue.shade700,
                         fontWeight: FontWeight.w700,
-                        fontSize: 16,
+                        fontSize: 24,
                       ),
                     ),
                     const SizedBox(height: 20),
