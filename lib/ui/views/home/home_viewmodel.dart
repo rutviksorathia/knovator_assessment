@@ -34,7 +34,7 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void handlePostListItemTap(
-    Post post,
+    Post post
   ) async {
     posts.firstWhere((el) => el.id == post.id).markAsRead = true;
     var result = await Get.to<bool>(() => PostDetailsView(postId: post.id));
