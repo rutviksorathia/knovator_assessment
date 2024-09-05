@@ -71,10 +71,12 @@ class _PostListItemState extends State<PostListItem> {
   GlobalKey<State> key = GlobalKey();
 
   void handleTimerButtonTap() {
+    widget.post.isTimerStarted = true;
     widget.timer ??= Timer.periodic(const Duration(seconds: 1), (timer) {
       if (widget.post.time == 0) {
         setState(() {
           timer.cancel();
+          widget.post.isTimerStarted = false;
         });
       } else {
         setState(() {
@@ -88,7 +90,6 @@ class _PostListItemState extends State<PostListItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => {
-        widget.post.isTimerStarted = true,
         widget.timer?.cancel(),
         widget.viewModel.handlePostListItemTap(widget.post),
       },
