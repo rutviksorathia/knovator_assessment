@@ -65,14 +65,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.7.0"
-  dio_http2_adapter:
-    dependency: "direct dev"
-    description:
-      name: dio_http2_adapter
-      sha256: "4c99b7b6960199d836c2ab906b6d2e890a45b31fc67f54f45b3088eabaaa59a1"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.5.3"
   dio_web_adapter:
     dependency: transitive
     description:
@@ -102,22 +94,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_hooks:
-    dependency: transitive
-    description:
-      name: flutter_hooks
-      sha256: cde36b12f7188c85286fba9b38cc5a902e7279f36dd676967106c041dc9dde70
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.20.5"
-  flutter_lints:
-    dependency: "direct dev"
-    description:
-      name: flutter_lints
-      sha256: "3f41d009ba7172d5ff9be5f6e6e6abb4300e263aab8866d2a0842ed2a70f8f0c"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -132,21 +108,13 @@ packages:
     source: hosted
     version: "4.6.6"
   get_it:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: get_it
       sha256: d85128a5dae4ea777324730dc65edd9c9f43155c109d5cc0a69cab74139fbac1
       url: "https://pub.dev"
     source: hosted
     version: "7.7.0"
-  get_storage:
-    dependency: "direct dev"
-    description:
-      name: get_storage
-      sha256: "39db1fffe779d0c22b3a744376e86febe4ade43bf65e06eab5af707dc84185a2"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.1.1"
   hive:
     dependency: "direct main"
     description:
@@ -163,14 +131,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
-  http2:
-    dependency: transitive
-    description:
-      name: http2
-      sha256: "9ced024a160b77aba8fb8674e38f70875e321d319e6f303ec18e87bd5a4b0c1d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.3.0"
   http_parser:
     dependency: transitive
     description:
@@ -203,14 +163,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-  lints:
-    dependency: transitive
-    description:
-      name: lints
-      sha256: "976c774dd944a42e83e2467f4cc670daef7eed6295b10b36ae8c85bcbf828235"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.0"
   matcher:
     dependency: transitive
     description:
@@ -352,14 +304,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.4.3"
-  stacked_hooks:
-    dependency: "direct dev"
-    description:
-      name: stacked_hooks
-      sha256: ba2b0d777c69d4d38e5c08edbacc4dfe68eac94672447d067c2edc86fff9ed25
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.4"
   stacked_shared:
     dependency: transitive
     description:
